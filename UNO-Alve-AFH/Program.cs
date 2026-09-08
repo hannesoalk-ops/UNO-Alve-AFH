@@ -1,60 +1,35 @@
-using System;
+﻿using System;
 
 public enum CardColor
 {
     Red,
-    Blue,
     Green,
+    Blue,
     Yellow,
-    Black
+    Black,
 }
 
-// Basklass för alla kort
-public abstract class UnoCard
+public enum CardType
+{
+    None,
+    Reverse,
+    Skip,
+    Draw2,
+    ColorChange,
+    Draw4,
+
+}
+
+public class card
 {
     public CardColor Color { get; set; }
-}
+    public CardType Type { get; set; }
+    public int? Number { get; set; }
 
-// 1. Sifferkort (0–9)
-public class NumberCard : UnoCard
-{
-    public int Number { get; set; }
-
-    public NumberCard(CardColor color, int number)
+    public card(CardColor color, CardType type, int? number = null)
     {
         Color = color;
-        Number = number;
-    }
-}
-
-// 2. Färgade aktionskort (Skip, Reverse, Draw Two)
-public class ActionCard : UnoCard
-{
-    public string Action { get; set; } // "Skip", "Reverse" eller "DrawTwo"
-
-    public ActionCard(CardColor color, string action)
-    {
-        Color = color;
-        Action = action;
-    }
-}
-
-// 3. Vildkort (Wild, Wild Draw Four)
-public class WildCard : UnoCard
-{
-    public string Effect { get; set; } // "Wild" eller "WildDrawFour"
-
-    public WildCard(string effect)
-    {
-        Color = CardColor.Black;
-        Effect = effect;
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-
+        Type = type;
+        Number = number;    
     }
 }

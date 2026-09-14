@@ -1,12 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UNO_Alve_AFH
 {
     internal class Card
     {
+        public string color;
+        public string type;
+
+        public Card(string color, string type)
+        {
+            this.color = color;
+            this.type = type;
+        }
+
+        public string GetName()
+        {
+            if (color == "")
+            {
+                return type;
+            }
+
+            return color + " " + type;
+        }
     }
 }

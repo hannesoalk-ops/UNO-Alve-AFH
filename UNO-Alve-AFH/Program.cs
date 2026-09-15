@@ -33,13 +33,13 @@ namespace UNO_Alve_AFH
                 players.Add(new Player(name));
             }
 
-            // Give each player 7 cards
+            // Ge Varje Spelare 7 Kort
             for (int i = 0; i < players.Count; i++)
             {
                 players[i].DrawCards(deck, 7);
             }
 
-            // First card
+            // Första kortet
             Card firstCard = deck.DrawCard();
             deck.AddToDiscard(firstCard);
 
@@ -58,14 +58,91 @@ namespace UNO_Alve_AFH
             while (gameRunning)
             {
                 Console.Clear();
+                
+                Console.ForegroundColor = ConsoleColor.Red;
 
-                Console.WriteLine("==============================");
-                Console.WriteLine("             UNO");
-                Console.WriteLine("==============================");
+                Console.WriteLine("╔══════════════════════════════════════╗");
+                Console.WriteLine("║                  UNO                 ║");
+                Console.WriteLine("╚══════════════════════════════════════╝");
+
+                Console.ResetColor();
+
+                //Console.WriteLine("==============================");
+                //Console.WriteLine("             UNO");
+                //Console.WriteLine("==============================");
 
                 Console.WriteLine();
-                Console.WriteLine("Top card: " + deck.GetTopCard().GetName());
-                Console.WriteLine("Current color: " + currentColor);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Top card: ");
+                Console.ResetColor();
+
+                Card topCard = deck.GetTopCard();
+
+                SetCardColor(topCard);
+
+                Console.WriteLine(topCard.GetName());
+
+                static void SetCardColor(Card card)
+                {
+                    if (card.color == "Red")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else if (card.color == "Blue")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                    else if (card.color == "Green")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else if (card.color == "Yellow")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                }
+
+                static void SetColor(string color)
+                {
+                    if (color == "Red")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else if (color == "Blue")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                    else if (color == "Green")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else if (color == "Yellow")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                }
+
+
+                Console.ResetColor();
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write("Current color: ");
+                Console.ResetColor();
+
+                SetColor(currentColor);
+
+                Console.WriteLine(currentColor);
+
+                Console.ResetColor();
+
 
                 Console.WriteLine();
 

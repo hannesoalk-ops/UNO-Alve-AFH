@@ -30,7 +30,7 @@ namespace UNO_Alve_AFH
                 Console.Write("Enter name for player " + (i + 1) + ": ");
                 string name = Console.ReadLine();
 
-                players.Add(new Player(name));
+                players.Add(new Player(name, i + 1));
             }
 
             // Ge Varje Spelare 7 Kort
